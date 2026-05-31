@@ -1,0 +1,18 @@
+{
+  "name": "aswidget",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "aswidget"
+  ],
+  "license": "ISC",
+  "author": "hanksdev",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "wrangler pages deploy ."
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
