@@ -70,7 +70,7 @@
 
         @media (max-width: 480px) {
             .masonry { column-count: 1; }
-            padding: 10px;
+            body { padding: 10px; }
         }
     </style>
 </head>
@@ -83,27 +83,29 @@
     <main class="masonry" id="gallery">
         <!-- Images will be generated here -->
     </main>
+        <!-- SCRIPT_REPLACE_START -->
+	<script>
+    const gallery = document.getElementById('gallery');
+    const imagesArray = [
+    "images/image-1.png",
+    "images/image-2.png",
+    "images/image.png"
+];
 
-    <script>
-        const gallery = document.getElementById('gallery');
-        const imageCount = 20;
+    imagesArray.forEach((src, index) => {
+        const item = document.createElement('div');
+        item.className = 'item';
 
-        for (let i = 0; i < imageCount; i++) {
-            const item = document.createElement('div');
-            item.className = 'item';
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = `Image ${index + 1}`;
+        img.loading = 'lazy';
 
-            // Random height for waterfall effect
-            const width = 400;
-            const height = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
+        item.appendChild(img);
+        gallery.appendChild(item);
+    });
+     </script>
+	<!-- SCRIPT_REPLACE_END -->
 
-            const img = document.createElement('img');
-            img.src = `https://picsum.photos/${width}/${height}?random=${i}`;
-            img.alt = `Random Image ${i}`;
-            img.loading = 'lazy';
-
-            item.appendChild(img);
-            gallery.appendChild(item);
-        }
-    </script>
 </body>
 </html>
